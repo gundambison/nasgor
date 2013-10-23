@@ -1,0 +1,5 @@
+INSERT INTO   `raja_permission` ( `per_name` )
+VALUES ('invoice'),('report'),('utility'),('history'),
+('customer'),('kurs'),
+('stock'),('stock transfer'),
+('sales'),('purchase'),('retur sales'),('retur purchase'),('repair')
