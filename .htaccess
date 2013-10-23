@@ -1,5 +1,7 @@
 RewriteEngine On
-RewriteBase /gundam3/nasgor-toko/
+RewriteBase /
+#change rewriteBase according to your site
+
 RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?f=$1 [L]
