@@ -1,4 +1,0 @@
-<?php 
-$siteUrl="";	
-$baseBody="home";
- 
