@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2013 at 06:56 PM
+-- Generation Time: Nov 02, 2013 at 07:07 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `work_hero`
@@ -175,6 +169,73 @@ INSERT INTO `raja_customeraddresscounter` (`id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `raja_item`
+--
+
+CREATE TABLE IF NOT EXISTS `raja_item` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_code` varchar(30) DEFAULT NULL,
+  `item_name` varchar(30) DEFAULT NULL,
+  `item_stat` varchar(30) DEFAULT NULL,
+  `item_price` int(11) DEFAULT NULL,
+  `item_disc` int(11) DEFAULT NULL,
+  `item_size` varchar(30) DEFAULT NULL,
+  `item_stock` int(11) DEFAULT NULL,
+  `item_price0` varchar(30) DEFAULT NULL,
+  `item_stock0` int(11) DEFAULT NULL,
+  `item_store` varchar(30) DEFAULT NULL,
+  `item_cat` int(11) DEFAULT NULL,
+  `item_merk` varchar(30) DEFAULT NULL,
+  `item_hot` int(11) DEFAULT NULL,
+  `item_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raja_itemdetail`
+--
+
+CREATE TABLE IF NOT EXISTS `raja_itemdetail` (
+  `itemdet_id` int(11) NOT NULL AUTO_INCREMENT,
+  `itemdet_detail` text COMMENT 'expire, color, pcs, desc, barcode, rak, etc',
+  PRIMARY KEY (`itemdet_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raja_kurs`
+--
+
+CREATE TABLE IF NOT EXISTS `raja_kurs` (
+  `k_id` int(11) NOT NULL AUTO_INCREMENT,
+  `k_code` varchar(30) DEFAULT NULL,
+  `k_name` varchar(30) DEFAULT NULL,
+  `k_stat` varchar(30) DEFAULT NULL,
+  `k_price` int(11) DEFAULT NULL,
+  `k_date` date DEFAULT NULL,
+  `k_source` varchar(30) DEFAULT NULL,
+  `k_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`k_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raja_kursdetail`
+--
+
+CREATE TABLE IF NOT EXISTS `raja_kursdetail` (
+  `kdet_id` int(11) NOT NULL AUTO_INCREMENT,
+  `kdet_detail` text COMMENT 'from, more, etc',
+  PRIMARY KEY (`kdet_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `raja_logstock`
 --
 
@@ -197,11 +258,13 @@ CREATE TABLE IF NOT EXISTS `raja_logstock` (
 --
 
 CREATE TABLE IF NOT EXISTS `raja_merk` (
-  `merk_id` int(11) NOT NULL AUTO_INCREMENT,
-  `merk_code` varchar(11) DEFAULT NULL,
-  `merk_name` varchar(31) DEFAULT NULL,
-  `merk_detail` text,
-  PRIMARY KEY (`merk_id`)
+  `k_id` int(11) NOT NULL AUTO_INCREMENT,
+  `k_code` varchar(30) DEFAULT NULL,
+  `k_name` varchar(31) DEFAULT NULL,
+  `k_price` int(11) DEFAULT NULL,
+  `k_date` date NOT NULL,
+  `k_source` varchar(100) NOT NULL,
+  PRIMARY KEY (`k_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -400,14 +463,15 @@ CREATE TABLE IF NOT EXISTS `raja_user` (
   `user_realname` varchar(40) NOT NULL,
   `user_password` varchar(100) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `raja_user`
 --
 
 INSERT INTO `raja_user` (`user_id`, `user_name`, `user_realname`, `user_password`) VALUES
-(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'gundam', 'gundam', '9163f2b67e738edf854cbfda80aef9af');
 
 -- --------------------------------------------------------
 
@@ -432,7 +496,3 @@ CREATE TABLE IF NOT EXISTS `raja_usertab` (
   `utab_tab` text NOT NULL,
   PRIMARY KEY (`utab_user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
