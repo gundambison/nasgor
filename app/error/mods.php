@@ -4,5 +4,7 @@ Mods tidak dapat di panggil <ol>
 foreach($modsError as $v)
 {
 ?><li><?=$v;?>.php</li>
+<?php
 }
+?>
 </ol>

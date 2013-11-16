@@ -1,4 +1,4 @@
 <?php
-$mods=array('database', 'session',
+$mods=array('database', 'session','myfunc',
 'login');
 $lib=array('db'=>'database');

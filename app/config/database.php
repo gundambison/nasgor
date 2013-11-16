@@ -1,6 +1,6 @@
 <?php
 $prefix="raja_";
-$mysqli = new mysqli("localhost", "root", "", "work_hero");
+$mysqli = new mysqli("localhost", "root", "", "work_nasgor");
 
 	/* check connection */
 	if (mysqli_connect_errno()) {
