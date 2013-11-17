@@ -1,8 +1,9 @@
 <a href='<?=my_url();?>'>Index</a>
-<a href='<?=my_url();?>admin/001kurs'>Admin</a>
+<a href='<?=my_url();?>form/002kurs'>Admin</a>
+<div class='detailScript'>Script hanya untuk menunjukkan tampilan kurs saja</div>
 <table align=center class='table1' border=1>
 <tr>
-<th>KODE</th><th>KURS</th>
+<th>KODE</th><th>KURS</th><th>TANGGAL</th>
 <th>BELI</th><th>JUAL</th>
 </tr>
 <?php
@@ -15,6 +16,7 @@ $q=query($sql);
 	?>
 	<tr>
 		<?=td($row['k_code']).td($row['k_name']);?>
+		<?=td(date("d-m-Y",strtotime($row['k_date'])));?>
 		<?=td($det['buy']).td($det['sale']);?>
 		 
 	</tr>

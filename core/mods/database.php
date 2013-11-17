@@ -6,12 +6,18 @@ global $mysqli;
 	$q=$mysqli->query($sql);
 	if(!$q)
 	{
-		//return FALSE;
-		die($mysqli->error."<br>$sql");
+		return FALSE;
+		//die($mysqli->error."<br>$sql");
 	}else{
 		return $q;
 	}
 	
+}
+
+function error()
+{
+	global $mysqli;
+	return $mysqli->error;
 }
 
 function fetch($q)
@@ -63,11 +69,11 @@ function create_autoid($prefix)
 function dbInsert($table, $data)
 {
 	$field=$dt="";
-foreach($data as $nm=>$var)
-{
-	$field.="`$nm`, ";
-	$dt.="'".addslashes($var)."',";
-}
+	foreach($data as $nm=>$var)
+	{
+		$field.="`$nm`, ";
+		$dt.="'".addslashes($var)."',";
+	}
 	$field=trim($field) ;$field=substr($field,0,strlen($field)-1) ;
 	$dt=trim($dt);$dt=substr($dt,0,strlen($dt)-1) ;
 

@@ -1,5 +1,5 @@
 <?php
-$prefix="raja_";
+$prefix="nasgor_";
 $mysqli = new mysqli("localhost", "root", "", "work_nasgor");
 
 	/* check connection */

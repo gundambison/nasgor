@@ -1,7 +1,8 @@
 <div class='content'>
-<div class='menu'>
-<a class='menuLink' title='kurs bank' detail='Kurs Yang Dapat di Edit dan ditambah' link='001kurs'>Kurs Bank</a>
-</div>
+<div class='menu'><pre>
+<a class='menuLink' title='kurs bank' detail='Kurs Hanya Untuk Dilihat' link='001kurs'>Kurs Bank</a>
+<a class='menuLink' title='kurs bank admin' detail='Kurs Yang Dapat di Edit dan ditambah' link='002kurs'>Kurs Bank(admin)</a>
+</pre></div>
 <div class='detail'>
 </div>
 <br class='clear' />

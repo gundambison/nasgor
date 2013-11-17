@@ -10,7 +10,7 @@ if(!$siteUrl)
 function loadMod($file)
 {
 global $appFolder,$coreFolder;
-	$ok=false;
+	//$ok=false;
 	$target1=$appFolder."/mods/".$file.".php";
 	$target2=$coreFolder."/mods/".$file.".php";	
 	if(is_file($target1))
@@ -18,19 +18,20 @@ global $appFolder,$coreFolder;
 		require_once($target1);
 		$ok=1;
 	}
+	
 	if(!isset($ok))
 	 if(is_file($target2))
 	 {
 		require_once($target2);
 		$ok=1;
 	 }
-	
+	if(!isset($ok))$ok=false;
 	return $ok;
 }
 function showView($file,$data=array() )
 {
 global $appFolder;
-	$target=$appFolder."/view/".$file.".php";
+	$target=$appFolder."/views/".$file.".php";
  
 	if(is_file($target))
 	{

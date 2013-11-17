@@ -34,3 +34,10 @@ clear:both;
 body{
 	padding:20px 0;
 }
+.detailScript{
+	width:980px;margin:auto;
+}
+.message{
+height:200px;width:980px;margin:auto;
+overflow:scroll; 
+}
