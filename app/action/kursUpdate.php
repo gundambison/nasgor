@@ -7,7 +7,8 @@ $aData=$_POST;
 if($field =='date')
 {
 	$sql="UPDATE   `kurs` SET  `k_date` =  '$value' WHERE   `k_id` =$id;";
-	$aData['sql']=$sql;
+	//$aData['sql']=$sql;
+	$q=query($sql);unset($sql);
 	$data=array('log_id'=>auto_id(), 'log_detail'=>json_encode($aData));
 	$sql2=dbInsert("kurs_log", $data);
 	
@@ -16,7 +17,7 @@ if($field =='date')
 if($field =='buy')
 {
 	$sql="select k_date date, k_detail from kurs where k_id=$id";
-	$q=query($sql);
+	$q=query($sql);unset($sql);
 	$row = $q->fetch_assoc();
 	$det=json_decode($row['k_detail'],true);
 	$det['buy']=$value;
@@ -32,13 +33,11 @@ if($field =='buy')
 if($field =='sale')
 {
 	$sql="select k_date date, k_detail from kurs where k_id=$id";
-	$q=query($sql);
+	$q=query($sql);unset($sql);
 	$row = $q->fetch_assoc();
 	$det=json_decode($row['k_detail'],true);
 	$det['sale']=$value;
-	$json=json_encode($det);
-	
-	$sql="UPDATE   `kurs` SET  `k_date` =  '$json' WHERE   `k_id` =$id;";
+	$json=json_encode($det); 
 	
 	$data=array('log_id'=>auto_id(), 'log_detail'=>json_encode($aData));
 	$sql2=dbInsert("kurs_log", $data);

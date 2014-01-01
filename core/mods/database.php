@@ -1,28 +1,47 @@
 <?php
 //==============MYSQLI SAJA==============
-function query($sql)
+function query($sql,$mysqli="",$pass=0)
 {
-global $mysqli;
+	if($mysqli=="")
+		global $mysqli;
+		
 	$q=$mysqli->query($sql);
 	if(!$q)
-	{
-		return FALSE;
-		//die($mysqli->error."<br>$sql");
+	{	
+		if($pass==0)
+			die($mysqli->error."<br>$sql");
 	}else{
 		return $q;
 	}
 	
 }
 
-function error()
+function queryFetchAll($sql,$mysqli="",$type=1)
 {
-	global $mysqli;
-	return $mysqli->error;
+	$q=query($sql,$mysqli);
+	$ar=array();
+	while($row=fetch($q,$type))
+	{
+		$ar[]=$row;
+	}
+	
+	return $ar;
 }
 
-function fetch($q)
+function queryFetch($sql,$mysqli="",$type=1)
 {
-	return $q->fetch_assoc();
+	$q=query($sql,$mysqli);
+	return fetch($q,$type);
+}
+
+function fetch($q,$type=1)
+{
+	if($type==1)
+	{
+		return $q->fetch_assoc();
+	}else{
+		return $q->fetch_field();
+	}
 }
 
 function num_rows($result)
@@ -32,8 +51,8 @@ function num_rows($result)
 
 function prefix()
 {
-global $prefix;
-	return $prefix;
+	global $prefix;
+	return $prefix ;
 }
 
 function auto_id($prefix='',$n=1)
@@ -41,7 +60,7 @@ function auto_id($prefix='',$n=1)
 	if($prefix=='') $prefix=prefix();
 	
 	$sql="select id from `{$prefix}counter`";	
-	$q=query($sql);
+	$q=query($sql,'',1);
 	if(!$q)
 	{
 		$q=create_autoid($prefix);
@@ -66,7 +85,7 @@ function create_autoid($prefix)
 	return query($sql);
 }
 
-function dbInsert($table, $data)
+function dbInsert($table, $data,$mysqli='')
 {
 	$field=$dt="";
 	foreach($data as $nm=>$var)
@@ -78,5 +97,45 @@ function dbInsert($table, $data)
 	$dt=trim($dt);$dt=substr($dt,0,strlen($dt)-1) ;
 
 	$sql="insert into `$table` ({$field}) values ({$dt})";
-	query($sql);
+	query($sql,$mysqli);
+}
+
+function dbUpdate($table, $data,$where, $mysqli='')
+{
+/*
+UPDATE  `work_nasgor`.`nasgor_tutorialtext` SET  `ttext_detail` =  'asdasd3',
+`ttext_code` =  'asdasdasd4' WHERE  `nasgor_tutorialtext`.`ttext_list` =1;
+*/
+	$field=$dt="";
+	foreach($data as $nm=>$var)
+	{
+		$dt="`$nm`=";
+		$dt.="'".addslashes($var)."'";
+		$ar[]=$dt;
+	} 
+
+	$data=implode(",", $ar);
+	$sql="update `$table` set $data
+	where $where";
+	//myLog($sql);
+	query($sql,$mysqli);
+	
+}
+
+function myLog($txt)
+{
+	$sql="select id from `my_log`";	
+	$q=query($sql,'',1);
+	if(!$q)
+	{
+		$sql="CREATE TABLE IF NOT EXISTS `my_log` (`id` int(11) NOT NULL AUTO_INCREMENT,
+  `log` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM";
+		query($sql);
+	}
+	
+	$data['log']=$txt;
+	dbInsert("my_log", $data);
 }

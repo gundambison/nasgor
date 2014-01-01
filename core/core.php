@@ -92,6 +92,7 @@ foreach($mods as $v)
 {
 	$s=loadMod($v);
 	if(!$s){ 
+		die('satu');
 		$f="error/mods.php";
 		isset($modsError)?$modsError[]=$v:$modsError=array($v);	
 	}

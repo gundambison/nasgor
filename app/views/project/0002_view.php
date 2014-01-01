@@ -35,10 +35,11 @@ function changeValue(stat,t)
 {
 	$this=$(t);
 	//msglog($this.val());
-	id0=$('.id');date0=$('.date');
+	id0=$('.id');
+	date0=$('.date');
 	code=$this.parent().parent().find(id0);
 	date=$this.parent().parent().find(date0);
-	//msglog(code.val());
+ 
 	var request = $.ajax({
           url: "<?=my_url();?>kursUpdate",
           type: "POST",
@@ -59,6 +60,7 @@ function msglog(s)
 	$(".message").append(s);
 	$(".message").append("<br/>");
 }
+
 $(function() {
 	$( ".date" ).datepicker({showButtonPanel: true,
 	dateFormat:"yy-mm-dd",  minDate: -3, maxDate: "+3D"  });
