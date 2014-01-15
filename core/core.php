@@ -4,7 +4,7 @@ include($appFolder."/config/config.php");
 include($appFolder."/config/database.php"); 
 include($appFolder."/config/autoload.php"); 
 
-$fileopen0=isset( $_GET['f'])?$_GET['f']:'';
+$fileopen0=isset($_GET['f'])?$_GET['f']:'';
 $fileopen0=str_replace(".html","",trim($fileopen0));
 
 $arFile=explode("/",$fileopen0);

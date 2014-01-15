@@ -102,10 +102,7 @@ function dbInsert($table, $data,$mysqli='')
 
 function dbUpdate($table, $data,$where, $mysqli='')
 {
-/*
-UPDATE  `work_nasgor`.`nasgor_tutorialtext` SET  `ttext_detail` =  'asdasd3',
-`ttext_code` =  'asdasdasd4' WHERE  `nasgor_tutorialtext`.`ttext_list` =1;
-*/
+ 
 	$field=$dt="";
 	foreach($data as $nm=>$var)
 	{

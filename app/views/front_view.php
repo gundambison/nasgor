@@ -7,6 +7,7 @@
 <a class='btn' title='bootstrap tutorial' detail='List Tutorial Bootstrap' link='005bootstrap'>Latihan Bootstrap (list)</a>
 <a class='btn' title='bootstrap tutorial' detail='Membaca Tutorial Bootstrap' link='006bootstrap'>Latihan Bootstrap (membaca)</a>
 <a class='btn' title='Test URI' detail='Mencoba URI' link='007uri'>Testing URI</a>
+<a class='btn' title='Order Edit' detail='Edit Order' link='008order'>Edit Order Memakai Flexy Grid</a>
 </pre></div>
 <div class='detail'>
 </div>

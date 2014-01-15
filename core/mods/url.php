@@ -27,12 +27,12 @@ function redirect($url)
 	exit();
 }
 
-function createUri($name,$table,$field)
+function uriName($str)
 {
-//=============BASE NAME
-	$s=trim(strtolower($name));
+	$s=trim(strtolower($str));
 	$n=strlen($s); 
 	if($n>90) $n=90;
+	
 	for($i=0;$i<$n;$i++)
 	{
 		//===========bila bukan a-z atau 0-9 ganti -
@@ -56,6 +56,13 @@ function createUri($name,$table,$field)
 		}
 		
 	}
+	
+	return $s;
+}
+function createUri($name,$table,$field)
+{
+//=============BASE NAME	
+	$s=uriName($s);
 	 
 	$basename=$s;
 	//====CHECK NUMBERING========
