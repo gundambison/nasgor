@@ -1,1 +1,0 @@
-telah terjadi error

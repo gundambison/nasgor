@@ -7,7 +7,7 @@ masih perlu perbaikan.. Bentuk pertama yang dibuat adalah untuk ERP Klinik
 Update yang lebih maju dapat melihat juga di 
 https://bitbucket.org/g_wibisono/ci-erp-nasgor
 
-Nasgor sebelumnya diletakkan di folder Old
+Nasgor sebelumnya diletakkan di zip dan dimasukkan ke folder temp
 
 
 16-11-2013
