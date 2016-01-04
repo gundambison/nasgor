@@ -1,5 +1,15 @@
-nasgor
+Nasgor ERP
 ======
+04-01-2016
+Mengganti nasgor dengan nasgor CI. Dibuat dalam bentuk ERP
+masih perlu perbaikan.. Bentuk pertama yang dibuat adalah untuk ERP Klinik
+
+Update yang lebih maju dapat melihat juga di 
+https://bitbucket.org/g_wibisono/ci-erp-nasgor
+
+Nasgor sebelumnya diletakkan di folder Old
+
+
 16-11-2013
 memulai tampilan baru, nasgor toko sudah fix dan tidak akan di tambah. Yang berikutnya adalah 
 Nasgor 160.. projek membuat program mini dengan Nasgor sebanyak 160!

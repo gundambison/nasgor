@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS `raja_merk` (
+  `k_id` int(11) NOT NULL AUTO_INCREMENT,
+  `k_code` varchar(30) DEFAULT NULL,
+  `k_name` varchar(31) DEFAULT NULL,
+  `k_price` int(11) DEFAULT NULL,
+  `k_date` date NOT NULL,
+  `k_source` varchar(100) NOT NULL,
+  PRIMARY KEY (`k_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `raja_kursdetail` (
+`kdet_id` int(11) NOT NULL AUTO_INCREMENT,
+`kdet_detail`text COMMENT 'bla bla',
+PRIMARY KEY (`kdet_id`) );

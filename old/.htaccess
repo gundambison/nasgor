@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+#change rewriteBase according to your site
+
+RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?f=$1 [L]
+#perbaiki tulisannya hingga jadi posisinya
+ 
+ErrorDocument 404 error.php
+DirectoryIndex index.php       
+order deny,allow

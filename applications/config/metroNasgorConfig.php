@@ -1,0 +1,50 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+$config['nasgorHeader']='Klinik Ciracas';
+$config['nasgorTitle']='Metro::admin';
+$config['nasgorFooterJS']=array(			
+			'metro/jquery-migrate-1.0.0.min.js',
+			'metro/jquery-ui-1.10.0.custom.min.js',
+			'metro/jquery.chosen.min.js',
+			'metro/jquery.cleditor.min.js',
+			'metro/jquery.cookie.js',
+			'metro/jquery.dataTables.min.js',
+			'metro/jquery.elfinder.min.js',
+			'metro/jquery.flot.js',
+			'metro/jquery.flot.pie.js',
+			'metro/jquery.flot.resize.min.js',
+			'metro/jquery.flot.stack.js',
+			'metro/jquery.gritter.min.js',
+			'metro/jquery.imagesloaded.js',
+			'metro/jquery.iphone.toggle.js',
+			'metro/jquery.knob.modified.js',
+			'metro/jquery.masonry.min.js',
+			'metro/jquery.noty.js',
+			'metro/jquery.raty.min.js',
+			'metro/jquery.sparkline.min.js',
+			'metro/jquery.ui.touch-punch.js',
+			'metro/jquery.uniform.min.js',
+			'metro/jquery.uploadify-3.1.min.js',
+			'metro/modernizr.js',
+			'metro/retina.js',
+			'metro/bootstrap.min.js',
+			'metro/counter.js',
+			'metro/custom.js',
+			'metro/excanvas.js',
+			'metro/fullcalendar.min.js',
+			//=============
+			'jqgrid3.8/i18n/grid.locale-en.js',
+			'jqgrid3.8/jquery.jqGrid.js', 
+			'main.js',
+			'jquery.multi-select.js',
+		);
+		
+	$config['nasgorCss']=array(			
+			'jqgrid3.8/ui.jqgrid.css',
+			'multi-select.css',
+		);	
+	$config['nasgorJS']=array(			
+			'metro/jquery-1.9.1.min.js',			
+		);
+	$config['nasgorBaseFolder']='metro/';
+	$config['templateView']='baseMetro_view';

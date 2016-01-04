@@ -1,12 +1,16 @@
+<IfModule mod_rewrite.c> 
 RewriteEngine On
-RewriteBase /
-#change rewriteBase according to your site
-
-RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php?f=$1 [L]
-#perbaiki tulisannya hingga jadi posisinya
  
-ErrorDocument 404 error.php
-DirectoryIndex index.php       
-order deny,allow
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+
+RewriteCond %{REQUEST_FILENAME} -d
+
+RewriteRule ^(.+) - [PT,L]
+ 
+
+RewriteRule ^$ index.php [L]
+ 
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+</IfModule>
+ 
